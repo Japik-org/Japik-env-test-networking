@@ -18,4 +18,36 @@
         <project.root>${project.basedir}/..</project.root>
     </properties>
 
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-out</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.root}</outputDirectory>
+                            <resources>
+                                <!--resource>
+                                    <directory>ExampleService</directory>
+                                    <includes>
+                                        <include>target/out/**</include>
+                                    </includes>
+                                </resource-->
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <modules>
+        <!--module>ExampleService</module-->
+    </modules>
+
 </project>

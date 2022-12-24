@@ -15,12 +15,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <project.root>${project.basedir}</project.root>
-        <project.japikOutDirectory>${project.root}/out/artifacts/maven</project.japikOutDirectory>
     </properties>
-
-    <dependencyManagement>
-
-    </dependencyManagement>
 
     <build>
         <pluginManagement>
@@ -36,110 +31,59 @@
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-antrun-plugin</artifactId>
-                    <version>3.1.0</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
                     <version>2.8</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-resources-plugin</artifactId>
-                    <version>3.2.0</version>
+                    <version>3.3.0</version>
                 </plugin>
             </plugins>
         </pluginManagement>
 
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>generate-out-directory</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <target>
-                                <mkdir dir="${project.japikOutDirectory}"/>
-                                <mkdir dir="${project.japikOutDirectory}/libs"/>
-                                <mkdir dir="${project.japikOutDirectory}/extensions"/>
-                                <mkdir dir="${project.japikOutDirectory}/services"/>
-                                <mkdir dir="${project.japikOutDirectory}/modules"/>
-                            </target>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <artifactId>maven-resources-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>copy-Japik</id>
+                        <id>copy-out</id>
                         <phase>package</phase>
                         <goals>
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.japikOutDirectory}</outputDirectory>
+                            <outputDirectory>${project.root}</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>${project.root}/Japik/target</directory>
+                                    <directory>Japik</directory>
                                     <includes>
-                                        <include>Japik.jar</include>
+                                        <include>target/out/**</include>
                                     </includes>
                                 </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>copy-Japik-libs</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${project.japikOutDirectory}/libs</outputDirectory>
-                            <resources>
                                 <resource>
-                                    <directory>${project.root}/Japik/target/libs</directory>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>copy-main</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${project.japikOutDirectory}</outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>${project.root}/main/target</directory>
+                                    <directory>main</directory>
                                     <includes>
-                                        <include>main.jar</include>
+                                        <include>target/out/**</include>
                                     </includes>
                                 </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>copy-main-libs</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${project.japikOutDirectory}/libs</outputDirectory>
-                            <resources>
                                 <resource>
-                                    <directory>${project.root}/main/target/libs</directory>
+                                    <directory>extensions</directory>
+                                    <includes>
+                                        <include>target/out/**</include>
+                                    </includes>
+                                </resource>
+                                <resource>
+                                    <directory>modules</directory>
+                                    <includes>
+                                        <include>target/out/**</include>
+                                    </includes>
+                                </resource>
+                                <resource>
+                                    <directory>services</directory>
+                                    <includes>
+                                        <include>target/out/**</include>
+                                    </includes>
                                 </resource>
                             </resources>
                         </configuration>
