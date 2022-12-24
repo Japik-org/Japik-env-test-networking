@@ -33,7 +33,7 @@
                             <outputDirectory>${project.root}</outputDirectory>
                             <resources>
                                 <!--resource>
-                                    <directory>ExampleModule</directory>
+                                    <directory>${project.modules}/ExampleModule</directory>
                                     <includes>
                                         <include>target/out/**</include>
                                     </includes>

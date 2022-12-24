@@ -15,6 +15,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <project.root>${project.basedir}</project.root>
+        <project.main>${project.root}/main</project.main>
+        <project.services>${project.root}/services</project.services>
+        <project.modules>${project.root}/modules</project.modules>
+        <project.extensions>${project.root}/extensions</project.extensions>
     </properties>
 
     <build>
@@ -56,31 +60,31 @@
                             <outputDirectory>${project.root}</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>Japik</directory>
+                                    <directory>${project.root}/Japik</directory>
                                     <includes>
                                         <include>target/out/**</include>
                                     </includes>
                                 </resource>
                                 <resource>
-                                    <directory>main</directory>
+                                    <directory>${project.main}</directory>
                                     <includes>
                                         <include>target/out/**</include>
                                     </includes>
                                 </resource>
                                 <resource>
-                                    <directory>extensions</directory>
+                                    <directory>${project.extensions}</directory>
                                     <includes>
                                         <include>target/out/**</include>
                                     </includes>
                                 </resource>
                                 <resource>
-                                    <directory>modules</directory>
+                                    <directory>${project.modules}</directory>
                                     <includes>
                                         <include>target/out/**</include>
                                     </includes>
                                 </resource>
                                 <resource>
-                                    <directory>services</directory>
+                                    <directory>${project.services}</directory>
                                     <includes>
                                         <include>target/out/**</include>
                                     </includes>
