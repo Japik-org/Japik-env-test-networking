@@ -32,12 +32,12 @@
                         <configuration>
                             <outputDirectory>${project.root}</outputDirectory>
                             <resources>
-                                <!--resource>
-                                    <directory>${project.extensions}/ExampleExtension</directory>
+                                <resource>
+                                    <directory>RMIProtocolExtension</directory>
                                     <includes>
                                         <include>target/out/**</include>
                                     </includes>
-                                </resource-->
+                                </resource>
                             </resources>
                         </configuration>
                     </execution>
@@ -47,6 +47,6 @@
     </build>
 
     <modules>
-        <!--module>ExampleExtension</module-->
+        <module>RMIProtocolExtension</module>
     </modules>
 </project>
