@@ -1,0 +1,3 @@
+[submodule "Japik"]
+	path = Japik
+	url = https://github.com/Japik-org/Japik.git
