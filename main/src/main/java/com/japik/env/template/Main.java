@@ -41,7 +41,7 @@ public class Main {
             remote.getLiveCycle().start();
 
             final boolean pingRes = remote.getProtocolInstance().getServiceConnection("simple").ping();
-            System.out.println("RMI protocol works! Ping result is: " + pingRes + ".");
+            japik.getLoggerManager().getMainLogger().info("RMI protocol works! Ping result is: " + pingRes + ".");
 
         } catch (Throwable throwable) {
             throwable.printStackTrace();
