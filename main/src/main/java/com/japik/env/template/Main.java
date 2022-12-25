@@ -4,6 +4,7 @@ import com.japik.Japik;
 import com.japik.extension.IExtension;
 import com.japik.extensions.rmiprotocol.shared.IRMIProtocolExtensionConnection;
 import com.japik.networking.Remote;
+import com.japik.service.IService;
 
 import java.nio.file.Paths;
 
@@ -31,11 +32,15 @@ public class Main {
         remote.getProtocolSettings().put("host", "127.0.0.1");
         remote.getProtocolSettings().put("port", 13500);
 
+        final IService<?> service = japik.getServiceLoader().load("Simple", "simple");
+        service.getLiveCycle().init();
+        service.getLiveCycle().start();
+
         try {
             remote.getLiveCycle().init();
             remote.getLiveCycle().start();
 
-            final boolean pingRes = remote.getProtocolInstance().getServiceConnection("rmiProtocol").ping();
+            final boolean pingRes = remote.getProtocolInstance().getServiceConnection("simple").ping();
             System.out.println("RMI protocol works! Ping result is: " + pingRes + ".");
 
         } catch (Throwable throwable) {
@@ -43,6 +48,9 @@ public class Main {
         }
 
         Thread.sleep(150);
+
+        service.getLiveCycle().stopForce();
+        service.getLiveCycle().destroy();
 
         if (remote.getLiveCycle().getStatus().isStarted())
             remote.getLiveCycle().stopForce();
