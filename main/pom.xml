@@ -19,6 +19,11 @@
             <version>0.6.1</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.japik.extensions</groupId>
+            <artifactId>RMIProtocolExtension</artifactId>
+            <version>[0.1, 0.2)</version>
+        </dependency>
     </dependencies>
 
     <properties>
