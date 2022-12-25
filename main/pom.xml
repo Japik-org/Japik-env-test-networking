@@ -23,6 +23,7 @@
             <groupId>com.japik.extensions</groupId>
             <artifactId>RMIProtocolExtension</artifactId>
             <version>[0.1, 0.2)</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
@@ -76,7 +77,7 @@
                             <mainClass>com.japik.env.template.Main</mainClass>
                         </manifest>
                         <manifestEntries>
-                            <Class-Path>japik.jar</Class-Path>
+                            <Class-Path>japik.jar extensions/rmiprotocol-extension-v0.1.jar services/simple-service-v0.2.jar</Class-Path>
                         </manifestEntries>
                     </archive>
                     <outputDirectory>${project.basedir}/target/out</outputDirectory>
@@ -95,6 +96,9 @@
                             <outputDirectory>${project.build.directory}/out/libs</outputDirectory>
                             <overWriteSnapshots>true</overWriteSnapshots>
                             <excludeArtifactIds>Japik</excludeArtifactIds>
+                            <excludeGroupIds>com.japik.extensions</excludeGroupIds>
+                            <excludeGroupIds>com.japik.services</excludeGroupIds>
+                            <excludeGroupIds>com.japik.modules</excludeGroupIds>
                         </configuration>
                     </execution>
                 </executions>
