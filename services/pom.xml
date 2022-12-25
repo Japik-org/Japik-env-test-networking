@@ -32,12 +32,12 @@
                         <configuration>
                             <outputDirectory>${project.root}</outputDirectory>
                             <resources>
-                                <!--resource>
-                                    <directory>${project.services}/ExampleService</directory>
+                                <resource>
+                                    <directory>${project.services}/SimpleService</directory>
                                     <includes>
                                         <include>target/out/**</include>
                                     </includes>
-                                </resource-->
+                                </resource>
                             </resources>
                         </configuration>
                     </execution>
@@ -47,7 +47,7 @@
     </build>
 
     <modules>
-        <!--module>ExampleService</module-->
+        <module>SimpleService</module>
     </modules>
 
 </project>
