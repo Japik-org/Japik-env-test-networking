@@ -17,6 +17,7 @@
             <groupId>com.japik</groupId>
             <artifactId>Japik</artifactId>
             <version>0.6.1</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
@@ -69,6 +70,9 @@
                             <classpathPrefix>libs/</classpathPrefix>
                             <mainClass>com.japik.env.template.Main</mainClass>
                         </manifest>
+                        <manifestEntries>
+                            <Class-Path>japik.jar</Class-Path>
+                        </manifestEntries>
                     </archive>
                     <outputDirectory>${project.basedir}/target/out</outputDirectory>
                 </configuration>
