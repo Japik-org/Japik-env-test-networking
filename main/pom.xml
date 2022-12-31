@@ -95,10 +95,7 @@
                         <configuration>
                             <outputDirectory>${project.build.directory}/out/libs</outputDirectory>
                             <overWriteSnapshots>true</overWriteSnapshots>
-                            <excludeArtifactIds>Japik</excludeArtifactIds>
-                            <excludeGroupIds>com.japik.extensions</excludeGroupIds>
-                            <excludeGroupIds>com.japik.services</excludeGroupIds>
-                            <excludeGroupIds>com.japik.modules</excludeGroupIds>
+                            <excludeScope>provided</excludeScope>
                         </configuration>
                     </execution>
                 </executions>
