@@ -19,6 +19,8 @@
         <project.services>${project.root}/services</project.services>
         <project.modules>${project.root}/modules</project.modules>
         <project.extensions>${project.root}/extensions</project.extensions>
+
+        <skipTests>true</skipTests>
     </properties>
 
     <build>
