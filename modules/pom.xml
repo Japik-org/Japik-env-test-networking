@@ -6,7 +6,7 @@
 
     <parent>
         <groupId>com.japik.env</groupId>
-        <artifactId>Japik-env-template</artifactId>
+        <artifactId>japik-env-template</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
