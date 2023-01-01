@@ -1,3 +1,9 @@
 [submodule "Japik"]
 	path = Japik
 	url = https://github.com/Japik-org/Japik.git
+[submodule "extensions/RMIProtocolExtension"]
+	path = extensions/RMIProtocolExtension
+	url = https://github.com/Japik-org/RMIProtocolExtension.git
+[submodule "services/SimpleService"]
+	path = services/SimpleService
+	url = https://github.com/Japik-org/SimpleService.git

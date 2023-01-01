@@ -6,7 +6,7 @@
 
     <parent>
         <groupId>com.japik.env</groupId>
-        <artifactId>Japik-env-template</artifactId>
+        <artifactId>japik-env-template</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
@@ -15,8 +15,15 @@
     <dependencies>
         <dependency>
             <groupId>com.japik</groupId>
-            <artifactId>Japik</artifactId>
-            <version>0.6.1</version>
+            <artifactId>japik</artifactId>
+            <version>[0.7.0, 0.8.0)</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.japik.extensions</groupId>
+            <artifactId>rmi-protocol-extension</artifactId>
+            <version>[0.1, 0.2)</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
@@ -25,19 +32,19 @@
     </properties>
 
     <build>
-        <finalName>${artifactId}</finalName>
+        <finalName>${project.artifactId}</finalName>
 
         <pluginManagement>
             <plugins>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.10.1</version>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>2.2-beta-5</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-assembly-plugin</artifactId>
-                    <version>2.2-beta-5</version>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.2.2</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -61,7 +68,6 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <configuration>
                     <archive>
@@ -70,7 +76,11 @@
                             <classpathPrefix>libs/</classpathPrefix>
                             <mainClass>com.japik.env.template.Main</mainClass>
                         </manifest>
+                        <manifestEntries>
+                            <Class-Path>japik.jar extensions/rmiprotocol-extension-0.1.jar services/simple-service-0.3.jar</Class-Path>
+                        </manifestEntries>
                     </archive>
+                    <outputDirectory>${project.basedir}/target/out</outputDirectory>
                 </configuration>
             </plugin>
             <plugin>
@@ -83,9 +93,9 @@
                             <goal>copy-dependencies</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.directory}/libs</outputDirectory>
+                            <outputDirectory>${project.build.directory}/out/libs</outputDirectory>
                             <overWriteSnapshots>true</overWriteSnapshots>
-                            <excludeArtifactIds>Japik</excludeArtifactIds>
+                            <excludeScope>provided</excludeScope>
                         </configuration>
                     </execution>
                 </executions>
